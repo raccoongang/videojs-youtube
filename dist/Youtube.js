@@ -495,7 +495,7 @@ THE SOFTWARE. */
     },
 
     playbackRate: function() {
-      return this.ytPlayer ? this.ytPlayer.getPlaybackRate() : 1;
+      return this.suggestedRate ? this.suggestedRate : 1;
     },
 
     setPlaybackRate: function(suggestedRate) {
@@ -504,6 +504,7 @@ THE SOFTWARE. */
       }
 
       this.ytPlayer.setPlaybackRate(suggestedRate);
+      this.suggestedRate = suggestedRate;
       this.trigger('ratechange');
     },
 
