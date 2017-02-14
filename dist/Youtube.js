@@ -520,7 +520,7 @@ THE SOFTWARE. */
     },
 
     volume: function() {
-      return this.ytPlayer ? this.ytPlayer.getVolume() / 100.0 : 1;
+      return this.volumeInfo ? this.volumeInfo : this.ytPlayer.getVolume() / 100.0;
     },
 
     setVolume: function(percentAsDecimal) {
@@ -529,6 +529,7 @@ THE SOFTWARE. */
       }
 
       this.ytPlayer.setVolume(percentAsDecimal * 100.0);
+      this.volumeInfo = percentAsDecimal;
       this.setTimeout( function(){
         this.trigger('volumechange');
       }, 50);
